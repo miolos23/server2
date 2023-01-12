@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const db = require("./app/models");
 
+
 const cors = require("cors");
 
 var corsOptions = {
@@ -26,7 +27,10 @@ app.get("/", (req, res) => {
     res.json({ message: "Server works!" })
 })
 
+require("./app/routes/meeting.routes")(app);
+
 const PORT = process.env.PORT || 3005;
+
 app.listen(PORT, () => {
     console.log(`Listening to port ${PORT}`);
 })
